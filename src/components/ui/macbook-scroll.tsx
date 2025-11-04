@@ -53,14 +53,16 @@ export const MacbookScroll = ({
   const scaleX = useTransform(
     scrollYProgress,
     [0, 0.3],
-    [1.2, isMobile ? 1 : 1.5],
+    [1.2, isMobile ? 0.9 : 1.5],
   );
   const scaleY = useTransform(
     scrollYProgress,
     [0, 0.3],
     [0.6, isMobile ? 1 : 1.5],
   );
-  const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  const translateOnY = isMobile ? 1800 : 1100
+
+  const translate = useTransform(scrollYProgress, [0, 1], [0, translateOnY]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -68,7 +70,7 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
+      className="flex min-h-[50vh] shrink-0 transform flex-col items-center justify-start py-0 [perspective:800px] scale-[0.65] md:scale-100 py-40"
     >
       <motion.h2
         style={{
@@ -166,7 +168,7 @@ export const Lid = ({
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <img
-          src={src as string}
+          src="https://picsum.photos/1400/900?random=20"
           alt="aceternity logo"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
         />
