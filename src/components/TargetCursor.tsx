@@ -58,6 +58,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     const originalCursor = document.body.style.cursor;
     if (hideDefaultCursor) {
       document.body.style.cursor = 'none';
+      document.body.classList.add('custom-cursor-active');
     }
 
     const cursor = cursorRef.current;
@@ -328,6 +329,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
       spinTl.current?.kill();
       document.body.style.cursor = originalCursor;
+      document.body.classList.remove('custom-cursor-active');
     };
   }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor, isMobile]);
 

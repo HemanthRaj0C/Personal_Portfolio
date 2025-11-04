@@ -41,6 +41,13 @@
   --glow-radius: 200px;
 }
 
+/* Smaller cards for footer */
+footer .magic-bento-card {
+  aspect-ratio: 5/2;
+  min-height: 120px;
+  padding: 1em;
+}
+
 .magic-bento-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);

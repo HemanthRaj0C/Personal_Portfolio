@@ -7,51 +7,51 @@ const Footer: React.FC = () => {
   const footerCards: BentoCardProps[] = [
     {
       color: '#060010',
-      title: 'Contact',
-      description: 'hello@portfolio.com',
+      title: '📧 Email',
+      description: 'contact@yourname.dev',
       label: 'Get in Touch'
     },
     {
       color: '#060010',
-      title: 'Location',
+      title: '💼 GitHub',
+      description: 'github.com/yourusername',
+      label: 'View Code'
+    },
+    {
+      color: '#060010',
+      title: '🔗 LinkedIn',
+      description: 'Connect professionally',
+      label: 'Network'
+    },
+    {
+      color: '#060010',
+      title: '🐦 Twitter',
+      description: '@yourusername',
+      label: 'Follow Updates'
+    },
+    {
+      color: '#060010',
+      title: '📍 Location',
       description: 'San Francisco, CA',
-      label: 'Based in'
+      label: 'Based In'
     },
     {
       color: '#060010',
-      title: 'Social Media',
-      description: 'Connect with me',
-      label: 'Follow'
-    },
-    {
-      color: '#060010',
-      title: 'GitHub',
-      description: 'View my projects',
-      label: 'Code'
-    },
-    {
-      color: '#060010',
-      title: 'LinkedIn',
-      description: 'Professional network',
-      label: 'Connect'
-    },
-    {
-      color: '#060010',
-      title: 'Newsletter',
-      description: 'Stay updated',
-      label: 'Subscribe'
+      title: '⚡ Status',
+      description: 'Available for work',
+      label: 'Open to Opportunities'
     }
   ];
 
   return (
-    <footer className="relative z-10 w-full bg-black py-16 pointer-events-auto">
-      <div className="container mx-auto px-4">
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold text-white text-center mb-4">
+    <footer className="relative z-10 w-full bg-black py-8 pointer-events-auto">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-4">
+          <h2 className="text-2xl font-bold text-white text-center mb-2">
             Let&apos;s Connect
           </h2>
-          <p className="text-gray-400 text-center max-w-2xl mx-auto">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          <p className="text-gray-400 text-center text-sm">
+            Feel free to reach out for collaborations or just a friendly chat
           </p>
         </div>
         
@@ -65,10 +65,6 @@ const Footer: React.FC = () => {
           clickEffect={true}
           enableMagnetism={false}
         />
-        
-        <div className="mt-12 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-        </div>
       </div>
     </footer>
   );

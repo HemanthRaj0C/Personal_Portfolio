@@ -4,9 +4,6 @@ import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect
 import TargetCursor from "@/components/TargetCursor";
 import { useEffect, useState } from "react";
 import { Timeline } from "@/components/ui/timeline";
-import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
-import NavBar from "@/components/pages/NavBar";
-import Footer from "@/components/pages/Footer";
 
 export default function Home() {
   const [gridSize, setGridSize] = useState({ rows: 20, cols: 35 });
@@ -63,21 +60,11 @@ export default function Home() {
 
   return (
     <div className="relative w-full bg-black overflow-x-hidden">
-      {/* NavBar */}
-      <NavBar />
-      
       {/* Background Ripple Effect */}
       <BackgroundRippleEffect 
         rows={gridSize.rows}
         cols={gridSize.cols}
         cellSize={56}
-      />
-      
-      {/* Target Cursor */}
-      <TargetCursor 
-        targetSelector=".cursor-target"
-        spinDuration={0}
-        hideDefaultCursor={true}
       />
       
       {/* Main Content */}
@@ -96,9 +83,6 @@ export default function Home() {
       <section className="relative z-10 bg-black">
         <Timeline data={timelineData} />
       </section>
-      
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

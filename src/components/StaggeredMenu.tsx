@@ -374,18 +374,18 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       </div>
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo" aria-label="Logo">
-          <img
+          {/* <img
             src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
             alt="Logo"
             className="sm-logo-img"
             draggable={false}
             width={110}
             height={24}
-          />
+          /> */}
         </div>
         <button
           ref={toggleBtnRef}
-          className="sm-toggle"
+          className="sm-toggle cursor-target p-3"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="staggered-menu-panel"
@@ -415,7 +415,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               items.map((it, idx) => (
                 <li className="sm-panel-itemWrap" key={it.label + idx}>
                   <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                    <span className="sm-panel-itemLabel">{it.label}</span>
+                    <span className="sm-panel-itemLabel cursor-target">{it.label}</span>
                   </a>
                 </li>
               ))
@@ -433,7 +433,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               <ul className="sm-socials-list" role="list">
                 {socialItems.map((s, i) => (
                   <li key={s.label + i} className="sm-socials-item">
-                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">
+                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link cursor-target">
                       {s.label}
                     </a>
                   </li>
