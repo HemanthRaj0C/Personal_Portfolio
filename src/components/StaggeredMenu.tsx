@@ -432,8 +432,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               <h3 className="sm-socials-title">Socials</h3>
               <ul className="sm-socials-list" role="list">
                 {socialItems.map((s, i) => (
-                  <li key={s.label + i} className="sm-socials-item">
-                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link cursor-target">
+                  <li key={s.label + i} className="sm-socials-item py-1 cursor-target">
+                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">
                       {s.label}
                     </a>
                   </li>

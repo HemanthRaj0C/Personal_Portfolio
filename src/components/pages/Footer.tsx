@@ -56,14 +56,17 @@ const Footer: React.FC = () => {
         </div>
         
         <MagicBento 
-          cards={footerCards}
-          textAutoHide={true}
-          enableStars={false}
-          enableSpotlight={true}
-          enableBorderGlow={true}
-          enableTilt={false}
-          clickEffect={true}
-          enableMagnetism={false}
+            cards={footerCards}
+            textAutoHide={true}
+            enableStars={true}
+            enableSpotlight={false}
+            enableBorderGlow={true}
+            enableTilt={false}
+            enableMagnetism={false}
+            clickEffect={true}
+            spotlightRadius={200}
+            particleCount={12}
+            disableAnimations={false}
         />
       </div>
     </footer>
