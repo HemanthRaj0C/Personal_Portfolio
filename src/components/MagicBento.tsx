@@ -13,6 +13,7 @@ export interface BentoCardProps {
 }
 
 export interface BentoProps {
+  cards?: BentoCardProps[];
   textAutoHide?: boolean;
   enableStars?: boolean;
   enableSpotlight?: boolean;
@@ -514,6 +515,7 @@ const useMobileDetection = () => {
 };
 
 const MagicBento: React.FC<BentoProps> = ({
+  cards = cardData,
   textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
@@ -543,7 +545,7 @@ const MagicBento: React.FC<BentoProps> = ({
       )}
 
       <BentoCardGrid gridRef={gridRef}>
-        {cardData.map((card, index) => {
+        {cards.map((card, index) => {
           const baseClassName = `magic-bento-card ${textAutoHide ? 'magic-bento-card--text-autohide' : ''} ${enableBorderGlow ? 'magic-bento-card--border-glow' : ''}`;
           const cardProps = {
             className: baseClassName,

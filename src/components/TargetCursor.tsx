@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import { gsap } from 'gsap';
 // @ts-ignore: allow importing CSS files without type declarations
@@ -20,6 +22,9 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   const dotRef = useRef<HTMLDivElement>(null);
   
   const isMobile = useMemo(() => {
+    // Check if we're in the browser
+    if (typeof window === 'undefined') return false;
+    
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const isSmallScreen = window.innerWidth <= 768;
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;

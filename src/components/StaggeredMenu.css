@@ -2,7 +2,14 @@
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 40;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.01s;
+}
+
+.staggered-menu-wrapper.sm-ready {
+  opacity: 1;
 }
 
 .staggered-menu-wrapper.fixed-wrapper {
@@ -11,8 +18,9 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 40;
+  z-index: 50;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .staggered-menu-header {
@@ -58,6 +66,10 @@
   font-weight: 500;
   line-height: 1;
   overflow: visible;
+}
+
+.staggered-menu-wrapper[data-open] .sm-toggle {
+  color: #000000 !important;
 }
 
 .sm-toggle:focus-visible {

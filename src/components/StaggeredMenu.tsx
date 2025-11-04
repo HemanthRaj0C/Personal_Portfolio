@@ -69,6 +69,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const busyRef = useRef(false);
   const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -93,6 +94,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
       gsap.set(textInner, { yPercent: 0 });
       if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+      
+      // Add ready class after GSAP has set initial positions
+      if (wrapperRef.current) {
+        wrapperRef.current.classList.add('sm-ready');
+      }
     });
     return () => ctx.revert();
   }, [menuButtonColor, position]);
@@ -349,6 +355,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   return (
     <div
+      ref={wrapperRef}
       className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
       style={accentColor ? { ['--sm-accent' as any]: accentColor } : undefined}
       data-position={position}
