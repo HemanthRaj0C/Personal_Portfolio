@@ -4,6 +4,7 @@ import React from "react";
 import InfiniteMenu from "@/components/InfiniteMenu";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import ExpandableCardDemo from "@/components/expandable-card-demo-standard";
+import ChromaGrid, { ChromaItem } from "@/components/ChromaGrid";
 
 const items = [
   {
@@ -25,44 +26,6 @@ const items = [
     description: 'This is pretty cool, right?'
   }
 ];
-
-export default function ProjectsPage() {
-  return (
-    <div className="w-full min-h-screen bg-black">
-      {/* Infinite Menu Section */}
-      <section style={{ position: 'relative', height: '100vh' }} className="">
-        <InfiniteMenu items={items} />
-      </section>
-      
-
-      {/* Expandable Card Section */}
-      {/* <section className="w-full px-8 py-20 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
-            Project Highlights
-          </h2>
-          <p className="text-neutral-400 text-center mb-12 max-w-2xl mx-auto">
-            Click on any card to learn more about these exciting projects and their impact.
-          </p>
-          <ExpandableCardDemo />
-        </div>
-      </section> */}
-
-      {/* Hover Effect Cards Section */}
-      <section className="w-full px-8 py-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-neutral-400 text-center mb-12 max-w-2xl mx-auto">
-            Explore some of my recent work and side projects that showcase my skills in web development, design, and problem-solving.
-          </p>
-          <HoverEffect items={projectItems} />
-        </div>
-      </section>
-    </div>
-  );
-}
 
 // Dummy data for hover effect cards
 const projectItems = [
@@ -112,3 +75,119 @@ const projectItems = [
     link: "#real-estate-marketplace",
   },
 ];
+
+// Dummy data for ChromaGrid projects
+const chromaGridProjects: ChromaItem[] = [
+  {
+    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=400&fit=crop',
+    title: 'E-Commerce Platform',
+    subtitle: 'Next.js • Stripe • MongoDB',
+    handle: 'Full Stack',
+    borderColor: '#4F46E5',
+    gradient: 'linear-gradient(145deg, #4F46E5, #000)',
+    url: 'https://github.com/yourproject/ecommerce-platform'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=400&fit=crop',
+    title: 'AI Chat Assistant',
+    subtitle: 'React • OpenAI • Node.js',
+    handle: 'Machine Learning',
+    borderColor: '#10B981',
+    gradient: 'linear-gradient(210deg, #10B981, #000)',
+    url: 'https://github.com/yourproject/ai-chat-assistant'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=400&fit=crop',
+    title: 'Task Management App',
+    subtitle: 'TypeScript • PostgreSQL • Express',
+    handle: 'Productivity',
+    borderColor: '#F59E0B',
+    gradient: 'linear-gradient(165deg, #F59E0B, #000)',
+    url: 'https://github.com/yourproject/task-manager'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=400&fit=crop',
+    title: 'Weather Dashboard',
+    subtitle: 'React • Weather API • Tailwind',
+    handle: 'Web App',
+    borderColor: '#06B6D4',
+    gradient: 'linear-gradient(195deg, #06B6D4, #000)',
+    url: 'https://github.com/yourproject/weather-dashboard'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop',
+    title: 'Social Media Analytics',
+    subtitle: 'Python • Django • Chart.js',
+    handle: 'Data Analysis',
+    borderColor: '#8B5CF6',
+    gradient: 'linear-gradient(225deg, #8B5CF6, #000)',
+    url: 'https://github.com/yourproject/social-analytics'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=400&fit=crop',
+    title: 'Portfolio Website Builder',
+    subtitle: 'Next.js • Prisma • Vercel',
+    handle: 'No-Code Tool',
+    borderColor: '#EF4444',
+    gradient: 'linear-gradient(135deg, #EF4444, #000)',
+    url: 'https://github.com/yourproject/portfolio-builder'
+  }
+];
+
+export default function ProjectsPage() {
+  return (
+    <div className="w-full min-h-screen bg-black">
+      {/* Infinite Menu Section - Hidden on mobile, visible on laptop/desktop */}
+      <section style={{ position: 'relative', height: '100vh' }} className="hidden lg:block">
+        <InfiniteMenu items={items} />
+      </section>
+
+      {/* Expandable Card Section - Visible on mobile, hidden on laptop/desktop */}
+      <section className="w-full px-8 pt-32 bg-black lg:hidden">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
+            Project Highlights
+          </h2>
+          <p className="text-neutral-400 text-center mb-12 max-w-2xl mx-auto">
+            Click on any card to learn more about these exciting projects and their impact.
+          </p>
+          <ExpandableCardDemo />
+        </div>
+      </section>
+
+      {/* ChromaGrid Section */}
+      <section className="w-full px-8 py-20 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
+            Project Showcase
+          </h2>
+          <p className="text-neutral-400 text-center mb-12 max-w-2xl mx-auto">
+            Click on any project card to visit the repository and explore the code.
+          </p>
+          <ChromaGrid 
+            items={chromaGridProjects} 
+            columns={3} 
+            rows={2}
+            radius={300}
+            damping={0.45}
+            fadeOut={0.6}
+            ease="power3.out"
+          />
+        </div>
+      </section>
+
+      {/* Hover Effect Cards Section */}
+      <section className="w-full px-8 py-20">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
+            Featured Projects
+          </h2>
+          <p className="text-neutral-400 text-center mb-12 max-w-2xl mx-auto">
+            Explore some of my recent work and side projects that showcase my skills in web development, design, and problem-solving.
+          </p>
+          <HoverEffect items={projectItems} />
+        </div>
+      </section>
+    </div>
+  );
+}
