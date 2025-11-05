@@ -176,7 +176,7 @@ export default function AboutMePage() {
       </div>
 
       {/* Animated Tabs */}
-      <div className="w-full px-4 -mt-68 md:-mt-40 md:px-10 mb-40 bg-black">
+      <div className="w-full px-4 -mt-0 md:-mt-40 md:px-10 mb-40 bg-black">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white">
           My Expertise
         </h2>

@@ -33,6 +33,10 @@
   font-size: 4rem;
   left: 1.6em;
   top: 50%;
+  @media screen and (max-width: 768px) {
+      left: 1.3em;
+      top: 28%;
+  }
 }
 
 .action-button-icon {
@@ -47,6 +51,9 @@
   position: absolute;
   top: 50%;
   transform: translate(20%, -50%);
+    @media screen and (max-width: 768px) {
+      top: 28%;
+  }
 }
 
 .face-title.active {
@@ -70,6 +77,11 @@
   font-size: 1.5rem;
   right: 1%;
   transform: translate(0, -50%);
+  @media screen and (max-width: 768px) {
+    right: -33%;
+    top: 75%;
+    max-width: 18ch;
+}
 }
 
 .face-description.active {

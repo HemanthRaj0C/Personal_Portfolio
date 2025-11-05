@@ -1104,7 +1104,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div style={{ position: 'relative', width: '100%', height: '100%' }} className='text-white'>
       <canvas id="infinite-grid-menu-canvas" ref={canvasRef} />
 
       {activeItem && (
@@ -1113,7 +1113,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
 
           <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}>{activeItem.description}</p>
 
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
+          <div onClick={handleButtonClick} className={`action-button cursor-target ${isMoving ? 'inactive' : 'active'}`}>
             <p className="action-button-icon">&#x2197;</p>
           </div>
         </>
