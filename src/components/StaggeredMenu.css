@@ -366,3 +366,12 @@
     filter: invert(100%);
   }
 }
+
+/* Active/current page styling for menu items */
+.sm-panel-item.sm-panel-item--active,
+.sm-panel-item.sm-panel-item--active .sm-panel-itemLabel {
+  color: #9a9a9a;
+}
+.sm-panel-item.sm-panel-item--active:hover {
+  color: #9a9a9a; /* keep active item color on hover */
+}

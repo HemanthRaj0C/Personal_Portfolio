@@ -1,4 +1,7 @@
+"use client";
+
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
 // @ts-ignore: allow importing CSS files without type declarations
 import './StaggeredMenu.css';
@@ -353,6 +356,17 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     animateText(target);
   }, [playOpen, playClose, animateIcon, animateColor, animateText]);
 
+  // detect current route so we can mark the matching menu item as active
+  // call the hook unconditionally (component is a client component)
+  const pathname = usePathname() ?? '/';
+  const normalizePath = (p?: string | null) => {
+    if (!p) return '/';
+  // strip trailing slashes, but keep root as '/'
+  const s = p.replace(/\/+$/, '');
+    return s === '' ? '/' : s;
+  };
+  const currentPath = normalizePath(pathname);
+
   return (
     <div
       ref={wrapperRef}
@@ -412,13 +426,23 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         <div className="sm-panel-inner">
           <ul className="sm-panel-list" role="list" data-numbering={displayItemNumbering || undefined}>
             {items && items.length ? (
-              items.map((it, idx) => (
-                <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                    <span className="sm-panel-itemLabel cursor-target">{it.label}</span>
-                  </a>
-                </li>
-              ))
+              items.map((it, idx) => {
+                const targetPath = normalizePath(it.link);
+                const isActive = targetPath === currentPath;
+                return (
+                  <li className="sm-panel-itemWrap" key={it.label + idx}>
+                    <a
+                      className={"sm-panel-item" + (isActive ? ' sm-panel-item--active' : '')}
+                      href={it.link}
+                      aria-label={it.ariaLabel}
+                      aria-current={isActive ? 'page' : undefined}
+                      data-index={idx + 1}
+                    >
+                      <span className="sm-panel-itemLabel cursor-target">{it.label}</span>
+                    </a>
+                  </li>
+                );
+              })
             ) : (
               <li className="sm-panel-itemWrap" aria-hidden="true">
                 <span className="sm-panel-item">
