@@ -3,7 +3,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
-// @ts-ignore: allow importing CSS files without type declarations
+// @ts-expect-error: allow importing CSS files without type declarations
 import './StaggeredMenu.css';
 
 export interface StaggeredMenuItem {
@@ -378,7 +378,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       <div ref={preLayersRef} className="sm-prelayers" aria-hidden="true">
         {(() => {
           const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
-          let arr = [...raw];
+          const arr = [...raw];
           if (arr.length >= 3) {
             const mid = Math.floor(arr.length / 2);
             arr.splice(mid, 1);

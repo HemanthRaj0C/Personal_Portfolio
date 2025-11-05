@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -10,14 +10,9 @@ const nextConfig = {
     ],
   },
   // Allow builds to succeed even when TypeScript reports errors.
-  // WARNING: this will let invalid/unsafe code ship to production — use only when necessary.
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Disable ESLint failing the production build. Lint during dev/CI instead.
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-} as NextConfig;
+};
 
 export default nextConfig;
